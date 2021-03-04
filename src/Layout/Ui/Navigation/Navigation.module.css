@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 nav {
@@ -67,7 +67,7 @@ nav {
     right: 0;
     top: 8vh;
     width: 40%;
-    height: 92vh;
+    height: 100vh;
     background-color: #263238;
     padding-top: 15%;
     z-index: 500;

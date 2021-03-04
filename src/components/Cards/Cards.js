@@ -36,6 +36,7 @@ const Cards = () => {
           return <Card title={item.title} originalTitle={item.original_title} key={item.id} />;
         })
       )}
+      <img src={"../../../assets/images/Logo.jpg"} alt="sometingwong" />
     </Fragment>
   );
 };
