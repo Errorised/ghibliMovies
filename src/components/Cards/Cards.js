@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Card from "./Card/Card";
 import axios from "axios";
+import coverImages from "../../assets/images/coverImages/coverImages";
 
 const Cards = () => {
   const apiURL = "https://ghibliapi.herokuapp.com/films/";
@@ -9,18 +10,21 @@ const Cards = () => {
 
   const fetchData = async () => {
     const response = await axios.get(apiURL);
-    const includingImage= await response.data.map(item => {
-        return (
-            {...item, image:`${apiURL}${item.title.toLowerCase().split(" ").join("")}`}
-        )
-    })
+    const includingImage = await response.data.map((item) => {
+      return {
+        ...item,
+        image: `${apiURL}${item.title.toLowerCase().split(" ").join("")}.png`,
+      };
+    });
     console.log(includingImage);
     setData(response.data);
     setLoading(false);
+  };
 
-    const testFunction = () => {
-      return <div></div>;
-    };
+  const logImages = () => {
+    coverImages.map((image) => {
+      return <img src={image.src} alt="cover Image" />;
+    });
   };
 
   useEffect(() => {
@@ -33,10 +37,18 @@ const Cards = () => {
         <p>Loading...</p>
       ) : (
         data.map((item) => {
-          return <Card title={item.title} originalTitle={item.original_title} key={item.id} />;
+          return (
+            <Card
+              title={item.title}
+              originalTitle={item.original_title}
+              key={item.id}
+            />
+          );
         })
       )}
-      <img src={"../../../assets/images/Logo.jpg"} alt="sometingwong" />
+      {coverImages.map((image) => {
+        return <img src={require(`../../assets/images/coverImages/${image.src}`).default} alt="cover Image" />;
+      })}
     </Fragment>
   );
 };
