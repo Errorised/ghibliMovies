@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import Card from "./Card/Card";
 import axios from "axios";
 import coverImages from "../../assets/images/coverImages/coverImages";
+import classes from "./Cards.module.css";
 
 const Cards = () => {
   const apiURL = "https://ghibliapi.herokuapp.com/films/";
@@ -32,7 +33,7 @@ const Cards = () => {
   }, []);
 
   return (
-    <Fragment>
+    <div className={classes.content}>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -47,9 +48,9 @@ const Cards = () => {
         })
       )}
       {coverImages.map((image) => {
-        return <img src={require(`../../assets/images/coverImages/${image.src}`).default} alt="cover Image" />;
+        return <img className={classes.coverImage} src={require(`../../assets/images/coverImages/${image.src}`).default} alt="cover Image" />;
       })}
-    </Fragment>
+    </div>
   );
 };
 

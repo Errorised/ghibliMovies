@@ -1,0 +1,10 @@
+.coverImage {
+  width: auto;
+  height: 400px;
+}
+
+@media screen and (max-width: 786px) {
+  .content {
+    padding-top: 8vh;
+  }
+}
