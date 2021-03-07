@@ -1,10 +1,5 @@
-.coverImage {
-  width: auto;
-  height: 400px;
-}
-
 @media screen and (max-width: 786px) {
-  .content {
+  .cards {
     padding-top: 8vh;
   }
 }
