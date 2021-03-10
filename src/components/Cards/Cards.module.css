@@ -1,5 +1,16 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-template-rows: repeat(400px, auto);
+  row-gap: 4rem;
+  justify-content: center;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 786px) {
   .cards {
     padding-top: 8vh;
+    grid-template-columns: repeat(auto-fit, 300px);
   }
 }

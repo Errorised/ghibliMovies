@@ -10,8 +10,8 @@ const Card = (props) => {
         src={require(`../../../assets/images/coverImages/${image}`).default}
         alt="cover image"
       />
-      <p>{title}</p>
-      <p>{originalTitle}</p>
+      <p className={classes.title}>{title}</p>
+      <p className={classes.originalTitle}>{originalTitle}</p>
     </div>
   );
 };
