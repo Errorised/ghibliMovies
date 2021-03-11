@@ -1,16 +1,18 @@
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 400px);
-  grid-template-rows: repeat(400px, auto);
-  row-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, 325px);
+  row-gap: 2rem;
   justify-content: center;
-  margin-top: 30px;
-  overflow: hidden;
+  margin: 30px auto 0 auto;
+  width: 95%;
+
+
 }
 
 @media screen and (max-width: 786px) {
   .cards {
-    padding-top: 8vh;
-    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-columns: repeat(auto-fit, 250px);
+    row-gap: 1.5rem;;
+
   }
 }

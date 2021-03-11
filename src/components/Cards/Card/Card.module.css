@@ -1,15 +1,16 @@
 .card {
   box-sizing: border-box;
   height: 450px;
-  width: 300px;
+  width: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.2);
   justify-self: center;
   font-size: 1.1rem;
   font-weight: 600;
+  margin: 20px 0;
 }
 .coverImage {
   width: 100%;
@@ -24,7 +25,8 @@
 @media screen and (max-width:768px) {
   .card {
     height: 350px;
-    width: 250px;
+    width: 230px;
+    font-size: 1rem;
   }
 
   .coverImage{
