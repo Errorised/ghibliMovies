@@ -15,6 +15,10 @@ const Navigation = () => {
     console.log(navLinksRef.current);
   };
 
+  const disableNav = () => {
+    setActiveNav("");
+  }
+
   return (
     <Fragment>
       <header>
@@ -41,7 +45,7 @@ const Navigation = () => {
           </div>
         </nav>
       </header>
-      {activeNav === "" ? null : <Backdrop />}
+      {activeNav === "" ? null : <Backdrop disable={disableNav} />}
     </Fragment>
   );
 };
