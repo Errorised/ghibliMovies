@@ -1,17 +1,18 @@
 import React, { Fragment, useEffect, useState } from "react";
+import axios from "../../../axios-base";
+import classes from "./Cards.module.css";
+import { withRouter } from "react-router-dom";
+
 import Card from "./Card/Card";
 import SearchBar from "../../SearchBar/SearchBar";
-import axios from "axios";
-import classes from "./Cards.module.css";
 
 const Cards = () => {
-  const apiURL = "https://ghibliapi.herokuapp.com/films/";
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchData = async () => {
-    const response = await axios.get(apiURL);
+    const response = await axios.get("/films");
     const includingImage = await response.data.map((item) => {
       return {
         ...item,
@@ -36,10 +37,8 @@ const Cards = () => {
       .filter((item) => {
         if (searchTerm === "") {
           return item;
-        } else if (
-          item.title.toLowerCase().includes(searchTerm.toLowerCase())
-        ) {
-          return item;
+        } else {
+          return item.title.toLowerCase().includes(searchTerm.toLowerCase());
         }
       })
       .map((item) => {
@@ -49,6 +48,7 @@ const Cards = () => {
             originalTitle={item.original_title}
             key={item.id}
             image={item.image}
+            movieId={item.id}
           />
         );
       });
@@ -67,4 +67,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default withRouter(Cards);
