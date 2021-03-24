@@ -17,7 +17,7 @@ const Navigation = () => {
 
   const disableNav = () => {
     setActiveNav("");
-  }
+  };
 
   return (
     <Fragment>

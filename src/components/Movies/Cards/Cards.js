@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Card from "./Card/Card";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../../SearchBar/SearchBar";
 import axios from "axios";
 import classes from "./Cards.module.css";
 
@@ -18,7 +18,6 @@ const Cards = () => {
         image: `${item.title.toLowerCase().split(" ").join("")}.jpg`,
       };
     });
-    console.log(includingImage);
     setData(includingImage);
     setLoading(false);
   };
@@ -60,7 +59,6 @@ const Cards = () => {
       <SearchBar
         changeSearchTerm={changeSearchTermHandler}
         value={searchTerm}
-        category="Movies"
       />
       <div className={classes.cards}>
         {loading ? <p>Loading...</p> : <CreateCards />}

@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./SearchBar.module.css";
 
 const SearchBar = (props) => {
-  const { value, changeSearchTerm, category } = props;
+  const { value, changeSearchTerm } = props;
 
   return (
     <div className={classes.search}>

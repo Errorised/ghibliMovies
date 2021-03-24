@@ -7,8 +7,8 @@ const Card = (props) => {
     <div className={classes.card}>
       <img
         className={classes.coverImage}
-        src={require(`../../../assets/images/coverImages/${image}`).default}
-        alt="cover image"
+        src={require(`../../../../assets/images/coverImages/${image}`).default}
+        alt="cover"
       />
       <p className={classes.title}>{title}</p>
       <p className={classes.originalTitle}>{originalTitle}</p>
