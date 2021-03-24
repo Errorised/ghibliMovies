@@ -1,0 +1,6 @@
+- Style Details Page
+- Add "bread-crums" 
+- Add Character and Places Pages
+- Add new "/" Page (instruction page)
+
+

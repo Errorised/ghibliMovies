@@ -16,9 +16,15 @@ nav {
 
 }
 
+a {
+  text-decoration: none;
+}
+
 .logo {
   font-size: 2rem;
   font-weight: 500;
+  color: white;
+
 }
 
 .navLinks {

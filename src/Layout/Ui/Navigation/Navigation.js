@@ -1,6 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import classes from "./Navigation.module.css";
 import Backdrop from "../Backdrop/Backdrop";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const navLinksRef = useRef();
@@ -23,7 +24,7 @@ const Navigation = () => {
     <Fragment>
       <header>
         <nav>
-          <p className={classes.logo}>Studio Ghibli</p>
+          <Link to="/movies" ><p className={classes.logo}>Studio Ghibli</p></Link>
           <ul
             className={`${classes.navLinks} ${classes[activeNav]}`}
             ref={navLinksRef}
