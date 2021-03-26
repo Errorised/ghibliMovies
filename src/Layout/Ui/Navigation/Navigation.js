@@ -30,13 +30,13 @@ const Navigation = () => {
             ref={navLinksRef}
           >
             <li>
-              <a href="#">Movies</a>
+              <Link to="/movies" href="#">Movies</Link>
             </li>
             <li>
-              <a href="#">Characters</a>
+              <Link to="/characters" href="#">Characters</Link>
             </li>
             <li>
-              <a href="#">Places</a>
+              <Link to="" href="#">Places</Link>
             </li>
           </ul>
           <div className={classes.burger} onClick={toggleNavigationHandler}>
