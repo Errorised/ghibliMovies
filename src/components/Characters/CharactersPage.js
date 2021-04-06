@@ -27,16 +27,28 @@ const CharactersPage = () => {
 
       // console.log(useableData);
 
-      const movieArr = response.data.map(char => {
-        return char.films
+      const movieArr = await response.data.map((char) => {
+        return char.films;
       });
-      console.log(movieArr.flat());
+
+      const fetchMovie = await movieArr.map(async (entry) => {
+        const linkArr = await entry.map(async (link) => {
+          const response = await axios.get(link);
+          return response.data.title;
+        });
+        const afterPromise = await Promise.all(linkArr);
+        return afterPromise;
+      });
+      const endResult = await Promise.all(fetchMovie);
+      console.log(endResult);
 
       const filteredData = response.data.map((entry) => {
         return { name: entry.name, age: entry.age };
       });
+      setMovieNames(endResult);
       setCharacterData(filteredData);
       setLoading(false);
+      console.log(characterData);
     };
     fetchData();
   }, []);
