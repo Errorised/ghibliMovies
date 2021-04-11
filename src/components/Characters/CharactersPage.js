@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios, { noBaseUrl } from "../../axios-base";
+import axios from "../../axios-base";
 import classes from "./CharactersPage.module.css";
 import CharactersTable from "./CharactersTable/CharactersTable";
 
 const CharactersPage = () => {
   const [characterData, setCharacterData] = useState([]);
-  const [movieNames, setMovieNames] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,16 +38,13 @@ const CharactersPage = () => {
         const afterPromise = await Promise.all(linkArr);
         return afterPromise;
       });
-      const endResult = await Promise.all(fetchMovie);
-      console.log(endResult);
+      const allMovies = await Promise.all(fetchMovie);
 
-      const filteredData = response.data.map((entry) => {
-        return { name: entry.name, age: entry.age };
+      const filteredData = response.data.map((entry, index) => {
+        return { name: entry.name, age: entry.age, id: entry.id, movies: allMovies[index] };
       });
-      setMovieNames(endResult);
       setCharacterData(filteredData);
       setLoading(false);
-      console.log(characterData);
     };
     fetchData();
   }, []);
@@ -60,7 +56,7 @@ const CharactersPage = () => {
       ) : (
         <div>
           <h1>List of all Characters</h1>
-          <CharactersTable />
+          <CharactersTable data={characterData} />
         </div>
       )}
     </div>
